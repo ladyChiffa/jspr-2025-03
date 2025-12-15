@@ -1,8 +1,11 @@
 package org.example.servlet;
 
+import org.example.config.JavaConfig;
+import org.example.config.JavaConfig2;
 import org.example.controller.PostController;
 import org.example.repository.PostRepository;
 import org.example.service.PostService;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,9 +18,9 @@ public class MainServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        final var repository = new PostRepository();
-        final var service = new PostService(repository);
-        controller = new PostController(service);
+        // final var context = new AnnotationConfigApplicationContext(JavaConfig.class);
+        final var context = new AnnotationConfigApplicationContext(JavaConfig2.class);
+        controller = (PostController) context.getBean("postController");
     }
 
     @Override
