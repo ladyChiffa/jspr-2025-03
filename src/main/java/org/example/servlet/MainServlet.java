@@ -3,8 +3,6 @@ package org.example.servlet;
 import org.example.config.JavaConfig;
 import org.example.config.JavaConfig2;
 import org.example.controller.PostController;
-import org.example.repository.PostRepository;
-import org.example.service.PostService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import javax.servlet.ServletException;
