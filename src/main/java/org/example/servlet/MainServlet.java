@@ -1,5 +1,7 @@
 package org.example.servlet;
 
+import org.example.config.JavaConfig;
+import org.example.config.JavaConfig2;
 import org.example.controller.PostController;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -14,7 +16,8 @@ public class MainServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        final var context = new AnnotationConfigApplicationContext("org.example");
+        // final var context = new AnnotationConfigApplicationContext(JavaConfig.class);
+        final var context = new AnnotationConfigApplicationContext(JavaConfig2.class);
         controller = (PostController) context.getBean("postController");
     }
 
